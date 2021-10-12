@@ -53,14 +53,17 @@ while (rand !== 5 && rand !== 7) {
 console.log("ciklu: ", ciklas);
 
 console.log("11. console.log’e, naudojant ciklą atspausdinti atsitiktinius skirtingus skaičius nuo 0 iki 10 (vienas skaičius vienoje eilutėje). Ciklas turi pasibaigti tada, kai atsitiktinių skaičių suma viršija 20, bet ne anksčiau nei po 11 ciklų;");
-// ATSAKYMAS LYG IR GAUNASI, BET SĄLYGA AR GERA ????
-
-for (let suma = 0; suma <= 20; suma ++) {         
-  let random = Math.floor(Math.random() * 2);
-  console.log("atsitiktinis skaicius: ", random);
-  suma += random;
-  console.log("suma yra: ", suma);
+let random11;
+let suma11 = 0;
+let cycleCount2 = 0;
+while ((suma11 < 20) || (cycleCount2 < 11)) {
+    cycleCount2++;
+    random11 = Math.trunc(Math.random() * 11);
+    suma11 += random11;
+    console.log(random11);
 }
+console.log('Suma: ', suma11, ' Kiek ciklu: ', cycleCount2);
+
 
 console.log("12. console.log’e, naudojant ciklą atspausdinti skirtingus atsitiktinius skaičius nuo 0 iki 10 (vienas skaičius vienoje eilutėje). Ciklą kartoti kol bus sugeneruoti trys nelyginiai skaičiai");
 let skirt;
@@ -74,26 +77,29 @@ while (nelygin < 3) {
 }
 
 console.log("13. console.log’e, naudojant ciklą atspausdinti po porą skirtingų atsitiktinių skaičių nuo 0 iki 10 (abu skaičiai vienoje eilutėje). Ciklą kartoti tol, kol neiškris abu vienodi skaičiai");
-let pirmas = 0;
-let antras = 1;
-while (pirmas !== antras) {
-    pirmas = Math.floor(Math.random() * 11);
-    antras = Math.floor(Math.random() * 11);
-    console.log(pirmas,'', antras);  
-    }
+do {
+  i = Math.trunc(Math.random() * 11);
+  j = Math.trunc(Math.random() * 11);
+  console.log(i, j);
+} while (i != j);
 
-console.log("14. console.log’e, naudojant ciklą atspausdinti po porą skirtingų atsitiktinių skaičių nuo 0 iki 10 (abu skaičiai vienoje eilutėje). Skaičiuoti abiejų skaičių sumas skirtinguose kintamuosiuose. Ciklą kartoti tol, kol kiekviena iš sumų bus daugiau nei 100");
+console.log('');
+
+
+
+console.log("14. console.log’e, naudojant ciklą atspausdinti po porą skirtingų atsitiktinių skaičių nuo 0 iki 10 (abu skaičiai vienoje eilutėje).Skaičiuoti abiejų skaičių sumas skirtinguose kintamuosiuose. Ciklą kartoti tol, kol kiekviena iš sumų bus daugiau nei 100");
 let pirminis;
 let antrinis;
 let pirminisSuma = 0;
 let antrinisSuma = 0;
 while (pirminisSuma <= 100 || antrinisSuma <= 100) {
     pirminis = Math.trunc(Math.random() * 11);
-    pirminisSuma += pirminis;
     antrinis = Math.trunc(Math.random() * 11);
+    pirminisSuma += pirminis;
     antrinisSuma += antrinis;
-    console.log("pirminis skaicius: ", pirminis, " ", "antrinis skaicius: ", antrinis);
+    console.log("pirminis", pirminis, " ", "antrinis", antrinis);
     console.log("pirminisSuma: ", pirminisSuma, " ", "antrinisSuma: ", antrinisSuma);
+
 }
 
 console.log("15. console.log’e, naudojant ciklą atspausdinti po porą skirtingų atsitiktinių skaičių nuo 0 iki 10 (abu skaičiai vienoje eilutėje). Ciklą kartoti kol bus sugeneruota po tris arba daugiau nelyginių skaičių.");
@@ -102,12 +108,11 @@ let random2;
 let random1Nelyginis = 0;
 let random2Nelyginis = 0;
 
-while (random1Nelyginis <= 3 && random2Nelyginis <= 3) {
-    random1 = Math.trunc(Math.random() * 11);
-    random2 = Math.trunc(Math.random() * 11);
-    console.log("random1: ", random1, " ", "random2: ", random2);
-    if (random1 % 2 === 1 || random2 % 2 === 1) {
-        random1Nelyginis++;
-        random2Nelyginis++;
-    }
+while ((random1Nelyginis < 3) || (random2Nelyginis < 3)) {
+  random1 = Math.trunc(Math.random() * 11);
+  random2 = Math.trunc(Math.random() * 11);
+  random1 % 2 === 1 ? random1Nelyginis++ : '';
+  random2 % 2 === 1 ? random2Nelyginis++ : '';
+  console.log(random1, ' ', random2);
 }
+console.log('Kiek nelyginiu 1: ', random1Nelyginis, ' Kiek nelyginiu 2: ', random2Nelyginis);
